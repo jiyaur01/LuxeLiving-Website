@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>About Us &bull; LuxeLiving Luxury Real Estate</title>
+  <meta name="description" content="Discover LuxeLiving's four decades of architectural heritage, tailored luxury property sales, investment advisory, and leadership team." />
+
+  <!-- Google Fonts matching LuxeLiving brand aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Dedicated About Us stylesheet -->
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body class="about-page">
+
+  <!-- Floating Liquid Glass Navigation Bar (Consistent with Homepage) -->
+  <header id="floating-navbar" class="floating-navbar" role="banner">
+    <nav class="nav-container" aria-label="Primary navigation">
+      <!-- Left: LuxeLiving Brand Logo Link (Returns to Home) -->
+      <a href="/" class="nav-brand" id="nav-brand-link" aria-label="LuxeLiving - Return to homepage">
+        <img src="luxeliving_wordmark_cropped.png" alt="LuxeLiving" class="nav-brand-logo" />
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/" class="nav-link" data-target="home">Home</a></li>
+        <li><a href="/#choose-style" class="nav-link" data-target="properties">Properties</a></li>
+        <li><a href="/#choose-style" class="nav-link" data-target="explore">Explore</a></li>
+        <li><a href="/#choose-style" class="nav-link" data-target="locations">Our Locations</a></li>
+        <li><a href="/about" class="nav-link active" data-target="about">About Us</a></li>
+        <li><a href="#team-assistance" class="nav-link" data-target="team">Our Team</a></li>
+        <li><a href="/#property-inquiry" class="nav-link" data-target="contact">Contact</a></li>
+      </ul>
+
+      <!-- Right: Enquire Now Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="/#property-inquiry" class="nav-cta-btn" id="nav-cta-btn">
+          <span class="cta-text">Enquire Now</span>
+          <span class="cta-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="nav-mobile-menu" id="nav-mobile-menu" aria-hidden="true">
+      <ul class="mobile-nav-links">
+        <li><a href="/" class="mobile-nav-link">Home</a></li>
+        <li><a href="/#choose-style" class="mobile-nav-link">Properties</a></li>
+        <li><a href="/#choose-style" class="mobile-nav-link">Explore</a></li>
+        <li><a href="/#choose-style" class="mobile-nav-link">Our Locations</a></li>
+        <li><a href="/about" class="mobile-nav-link active">About Us</a></li>
+        <li><a href="#team-assistance" class="mobile-nav-link">Our Team</a></li>
+        <li><a href="/#property-inquiry" class="mobile-nav-link">Contact</a></li>
+      </ul>
+      <div class="mobile-nav-cta">
+        <a href="/#property-inquiry" class="mobile-cta-btn" id="mobile-cta-btn">
+          <span>Enquire Now</span>
+          <span class="cta-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =======================================================================
+         Section 1 — Hero Banner
+         Full-width architectural interior, centered heading, subtle overlay
+         ======================================================================= -->
+    <section id="about-hero" class="about-hero" aria-label="About Us Hero">
+      <div class="hero-bg-wrapper">
+        <img src="images/about_hero_loft.jpg" alt="LuxeLiving Architectural Headquarters Interior" class="hero-bg-img" />
+        <div class="hero-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-content-wrap">
+        <div class="hero-text-inner animate-on-scroll" data-animation="fade-up">
+          <div class="hero-eyebrow-group">
+            <span class="hero-gold-line" aria-hidden="true"></span>
+            <span class="hero-eyebrow">ESTABLISHED 1985 &bull; ARCHITECTURAL EXCELLENCE</span>
+            <span class="hero-gold-line" aria-hidden="true"></span>
+          </div>
+          <h1 class="hero-title">About Us</h1>
+          <p class="hero-subtitle">
+            Four Decades of Timeless Architecture &amp; Bespoke Luxury Real Estate
+          </p>
+        </div>
+      </div>
+
+      <!-- Organic curved bottom edge divider -->
+      <div class="hero-curved-mask" aria-hidden="true"></div>
+    </section>
+
+
+    <!-- =======================================================================
+         Section 2 — Our Story: A Journey Through Time
+         Two-column layout: vintage heritage architectural photo & vertical timeline
+         ======================================================================= -->
+    <section id="about-story" class="about-story-section" aria-label="A Journey Through Time">
+      <div class="story-container">
+        
+        <!-- Left Column: Heritage Architectural Photo Collage -->
+        <div class="story-col-image animate-on-scroll" data-animation="fade-right">
+          <div class="heritage-image-card">
+            <div class="image-inner-wrapper">
+              <img src="images/about_story_heritage.jpg" alt="LuxeLiving Historic Landmark Architecture and Heritage Founder Portrait" class="heritage-img" />
+            </div>
+            <div class="heritage-badge">
+              <span class="badge-year">1985</span>
+              <span class="badge-label">HERITAGE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Heading, Lead Text & Vertical Timeline -->
+        <div class="story-col-content animate-on-scroll" data-animation="fade-left">
+          <div class="story-header">
+            <div class="story-eyebrow-row">
+              <span class="story-gold-rule" aria-hidden="true"></span>
+              <span class="story-eyebrow">A HERITAGE OF DISTINCTION</span>
+            </div>
+            <h2 class="story-title">A Journey Through Time</h2>
+            <p class="story-lead">
+              Founded on the conviction that extraordinary architecture shapes human experience, LuxeLiving has spent four decades discovering, curating, and safeguarding the world’s most distinguished residential sanctuaries.
+            </p>
+          </div>
+
+          <!-- Vertical Timeline -->
+          <div class="timeline-wrapper" role="list" aria-label="Company historical milestones">
+            
+            <!-- Milestone 1 -->
+            <div class="timeline-item animate-on-scroll" data-animation="fade-up" data-delay="100" role="listitem">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-year">1985</span>
+                <h3 class="timeline-heading">The Foundation</h3>
+                <p class="timeline-desc">
+                  Established with a steadfast commitment to architectural authenticity, discretion, and personalized client stewardship across premier luxury residences.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="timeline-item animate-on-scroll" data-animation="fade-up" data-delay="200" role="listitem">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-year">2004</span>
+                <h3 class="timeline-heading">Architectural Expansion</h3>
+                <p class="timeline-desc">
+                  Expanded our portfolio into iconic private waterfront estates, cliffside retreats, and landmark urban penthouses across prime international destinations.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 3 -->
+            <div class="timeline-item animate-on-scroll" data-animation="fade-up" data-delay="300" role="listitem">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-year">2016</span>
+                <h3 class="timeline-heading">Innovation &amp; Stewardship</h3>
+                <p class="timeline-desc">
+                  Pioneered sustainable luxury acquisitions, cutting-edge smart residences, and bespoke portfolio structuring for multi-generational wealth preservation.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 4 -->
+            <div class="timeline-item animate-on-scroll" data-animation="fade-up" data-delay="400" role="listitem">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-year">2026</span>
+                <h3 class="timeline-heading">Vision for Tomorrow</h3>
+                <p class="timeline-desc">
+                  Shaping the future of bespoke real estate curation, connecting visionary collectors with rare, unlisted architectural masterworks worldwide.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         Section 3 — Services We Provide
+         4 elegant service items with minimal luxury line icons
+         ======================================================================= -->
+    <section id="about-services" class="about-services-section" aria-label="Services We Provide">
+      <div class="services-container">
+        
+        <header class="services-header animate-on-scroll" data-animation="fade-up">
+          <div class="services-eyebrow-row">
+            <span class="story-gold-rule" aria-hidden="true"></span>
+            <span class="services-eyebrow">OUR COMPREHENSIVE EXPERTISE</span>
+            <span class="story-gold-rule" aria-hidden="true"></span>
+          </div>
+          <h2 class="services-title">Services We Provide</h2>
+          <p class="services-subtitle">
+            Tailored advisory and white-glove real estate solutions designed for discerning property owners and international investors.
+          </p>
+        </header>
+
+        <!-- 4-Column Service Grid -->
+        <div class="services-grid">
+          
+          <!-- Service 1: Luxury Property Sales -->
+          <article class="service-card animate-on-scroll" data-animation="fade-up" data-delay="100">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V7l7-4 7 4v14"></path>
+                <path d="M9 10h1"></path>
+                <path d="M14 10h1"></path>
+                <path d="M9 14h1"></path>
+                <path d="M14 14h1"></path>
+                <path d="M11 21v-4a1 1 0 0 1 1-1h0a1 1 0 0 1 1 1v4"></path>
+              </svg>
+            </div>
+            <h3 class="service-name">Luxury Property Sales</h3>
+            <p class="service-desc">
+              Representing iconic residences with confidential marketing, global outreach, and unmatched transactional precision.
+            </p>
+            <div class="service-accent-line"></div>
+          </article>
+
+          <!-- Service 2: Property Investment -->
+          <article class="service-card animate-on-scroll" data-animation="fade-up" data-delay="200">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20"></path>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <h3 class="service-name">Property Investment</h3>
+            <p class="service-desc">
+              Tailored investment strategies delivering long-term wealth preservation, steady rental yields, and exceptional capital growth.
+            </p>
+            <div class="service-accent-line"></div>
+          </article>
+
+          <!-- Service 3: Real Estate Consultation -->
+          <article class="service-card animate-on-scroll" data-animation="fade-up" data-delay="300">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <path d="M7 10l3 3 7-7"></path>
+              </svg>
+            </div>
+            <h3 class="service-name">Real Estate Consultation</h3>
+            <p class="service-desc">
+              Expert architectural evaluation, zoning analysis, valuation assessments, and bespoke acquisition advisory.
+            </p>
+            <div class="service-accent-line"></div>
+          </article>
+
+          <!-- Service 4: Personalized Property Search -->
+          <article class="service-card animate-on-scroll" data-animation="fade-up" data-delay="400">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <polygon points="11 8 13 12 9 12"></polygon>
+              </svg>
+            </div>
+            <h3 class="service-name">Personalized Property Search</h3>
+            <p class="service-desc">
+              White-glove concierge property sourcing, matching private lifestyle requirements with rare and off-market gems.
+            </p>
+            <div class="service-accent-line"></div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         Section 4 — Our Team / Assistance
+         Sophisticated dark section: "May We Be of Assistance?" + CTA + Team Cards
+         ======================================================================= -->
+    <section id="team-assistance" class="assistance-section" aria-label="May We Be of Assistance">
+      <div class="assistance-container">
+        
+        <div class="assistance-header animate-on-scroll" data-animation="fade-up">
+          <div class="assistance-eyebrow-row">
+            <span class="story-gold-rule" aria-hidden="true"></span>
+            <span class="assistance-eyebrow">PRIVATE CLIENT ADVISORY</span>
+            <span class="story-gold-rule" aria-hidden="true"></span>
+          </div>
+          <h2 class="assistance-title">May We Be of Assistance?</h2>
+          <p class="assistance-desc">
+            Our experienced leaders and property specialists are committed to guiding your next acquisition or investment with confidence and discretion.
+          </p>
+
+          <div class="assistance-contact-bar">
+            <a href="tel:2078767452" class="contact-pill">
+              <span class="pill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <span>Call us at +1 207-8767-452</span>
+            </a>
+            <a href="mailto:inquiry@luxeliving.com" class="contact-pill">
+              <span class="pill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <span>inquiry@luxeliving.com</span>
+            </a>
+          </div>
+
+          <div class="assistance-cta-wrap">
+            <a href="/#property-inquiry" class="btn-get-in-touch" id="btn-get-in-touch">
+              <span>GET IN TOUCH</span>
+              <span class="cta-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Team Showcase Cards -->
+        <div class="team-showcase-grid">
+          
+          <!-- Team Member 1 -->
+          <div class="team-member-card animate-on-scroll" data-animation="fade-up" data-delay="100">
+            <div class="team-photo-wrap">
+              <img src="images/team_daniel.jpg" alt="Daniel Carter, Founder &amp; Managing Director" class="team-photo" />
+              <div class="photo-gradient-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Daniel Carter</h3>
+              <p class="team-role">Founder &amp; Managing Director</p>
+              <p class="team-quote">
+                &ldquo;Leading LuxeLiving with a passion for exceptional properties and personalized service.&rdquo;
+              </p>
+            </div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="team-member-card animate-on-scroll" data-animation="fade-up" data-delay="200">
+            <div class="team-photo-wrap">
+              <img src="images/team_sophia.jpg" alt="Sophia Bennett, Senior Property Advisor" class="team-photo" />
+              <div class="photo-gradient-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Sophia Bennett</h3>
+              <p class="team-role">Senior Property Advisor</p>
+              <p class="team-quote">
+                &ldquo;Helping clients discover premium homes that match their lifestyle and aspirations.&rdquo;
+              </p>
+            </div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="team-member-card animate-on-scroll" data-animation="fade-up" data-delay="300">
+            <div class="team-photo-wrap">
+              <img src="images/team_ethan.jpg" alt="Ethan Brooks, Real Estate Investment Specialist" class="team-photo" />
+              <div class="photo-gradient-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">Ethan Brooks</h3>
+              <p class="team-role">Real Estate Investment Specialist</p>
+              <p class="team-quote">
+                &ldquo;Guiding investors toward outstanding property opportunities and long-term value.&rdquo;
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       Site Footer (Identical to Homepage)
+       ======================================================================= -->
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      
+      <!-- 3-Column Footer Grid -->
+      <div class="footer-main-grid">
+        
+        <!-- Left Column: Logo, Description & Social Icons -->
+        <div class="footer-col footer-col-brand">
+          <a href="/" class="footer-logo-link" aria-label="LuxeLiving Home">
+            <img src="luxeliving_wordmark_cropped.png" alt="LuxeLiving" class="footer-logo-img" />
+          </a>
+          <p class="footer-brand-desc">
+            At LuxeLiving, we believe that buying or selling a home should be an exciting and stress-free experience, offering exceptional properties and personalized service.
+          </p>
+          <div class="footer-social-links" aria-label="Social media links">
+            <a href="https://facebook.com" class="social-icon-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com" class="social-icon-btn" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com" class="social-icon-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" class="social-icon-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Middle Column: Explore Navigation Links -->
+        <div class="footer-col footer-col-links">
+          <h3 class="footer-col-title">Explore</h3>
+          <ul class="footer-nav-list">
+            <li><a href="/" class="footer-nav-link">Home</a></li>
+            <li><a href="/#choose-style" class="footer-nav-link">Properties</a></li>
+            <li><a href="/about" class="footer-nav-link">About Us</a></li>
+            <li><a href="#team-assistance" class="footer-nav-link">Our Team</a></li>
+            <li><a href="/#property-inquiry" class="footer-nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Right Column: Get In Touch Contact Details -->
+        <div class="footer-col footer-col-contact">
+          <h3 class="footer-col-title">Get In Touch</h3>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+              <span class="contact-text">2443 Oak Ridge Omaha, OA 45065</span>
+            </li>
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <a href="tel:2078767452" class="contact-link">207-8767-452</a>
+            </li>
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </span>
+              <a href="tel:2838497053" class="contact-link">283-849-7053</a>
+            </li>
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <a href="mailto:inquiry@luxeliving.com" class="contact-link">inquiry@luxeliving.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar: Thin Divider & Centered Copyright -->
+      <div class="footer-bottom-bar">
+        <p class="copyright-text">
+          Copyright &copy; 2026 LuxeLiving | Powered by LuxeLiving
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Dedicated About Us script -->
+  <script src="about.js"></script>
+</body>
+</html>

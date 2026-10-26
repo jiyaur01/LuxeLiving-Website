@@ -1,0 +1,12 @@
+{
+  "name": "real-estate-scroll-animation",
+  "version": "1.0.0",
+  "description": "Ultra-smooth 60fps scroll-driven image sequence animation for luxury real estate",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["scroll-animation", "canvas", "image-sequence", "real-estate"],
+  "author": "",
+  "license": "ISC"
+}

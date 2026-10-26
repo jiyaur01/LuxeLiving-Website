@@ -1,0 +1,35 @@
+[
+  {
+    "inquiryId": "LX-MVP7IP6X-843",
+    "timestamp": "2026-10-26T12:02:26.698Z",
+    "projectType": "Project",
+    "propertyType": "Modern Villa",
+    "propertyArea": "600 sq m",
+    "constructionDate": "Q4 2026",
+    "location": "Coastal Cliff",
+    "phoneNumber": "+1 (555) 234-5678",
+    "fullName": "Alexander Wright"
+  },
+  {
+    "inquiryId": "LX-MVP7MUCJ-344",
+    "timestamp": "2026-10-26T12:05:40.003Z",
+    "projectType": "Project + Construction",
+    "propertyType": "Cliffside Villa",
+    "propertyArea": "850 sq m",
+    "constructionDate": "2027",
+    "location": "Coastal Bluff",
+    "phoneNumber": "+1 800 555 0199",
+    "fullName": "Eleanor Vance"
+  },
+  {
+    "inquiryId": "LX-MVP8MS83-326",
+    "timestamp": "2026-10-26T12:33:36.867Z",
+    "projectType": "Ready Project",
+    "propertyType": "Penthouse",
+    "propertyArea": "450 sqm",
+    "constructionDate": "Immediate",
+    "location": "Omaha",
+    "phoneNumber": "+1 207-8767-452",
+    "fullName": "Sophia Bennett"
+  }
+]

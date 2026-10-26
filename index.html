@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Architectural Vision &bull; Real Estate Scroll Experience</title>
+  <meta name="description" content="Ultra-smooth 60fps scroll-driven architectural walkthrough animation." />
+  
+  <!-- Modern Clean Editorial Typography matching reference image -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Floating Luxury Navigation Bar -->
+  <header id="floating-navbar" class="floating-navbar" role="banner">
+    <nav class="nav-container" aria-label="Primary navigation">
+      <!-- Left: LuxeLiving Brand Logo Link (Returns to first frame) -->
+      <a href="#" class="nav-brand" id="nav-brand-link" aria-label="LuxeLiving - Return to homepage">
+        <img src="luxeliving_wordmark_cropped.png" alt="LuxeLiving" class="nav-brand-logo" />
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" class="nav-link active" data-target="home">Home</a></li>
+        <li><a href="#choose-style" class="nav-link" data-target="properties">Properties</a></li>
+        <li><a href="#choose-style" class="nav-link" data-target="explore">Explore</a></li>
+        <li><a href="#choose-style" class="nav-link" data-target="locations">Our Locations</a></li>
+        <li><a href="/about" class="nav-link" data-target="about">About Us</a></li>
+        <li><a href="#expert-team" class="nav-link" data-target="team">Our Team</a></li>
+        <li><a href="#property-inquiry" class="nav-link" data-target="contact">Contact</a></li>
+      </ul>
+
+      <!-- Right: Enquire Now Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="#property-inquiry" class="nav-cta-btn" id="nav-cta-btn">
+          <span class="cta-text">Enquire Now</span>
+          <span class="cta-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="nav-mobile-menu" id="nav-mobile-menu" aria-hidden="true">
+      <ul class="mobile-nav-links">
+        <li><a href="#" class="mobile-nav-link" data-target="home">Home</a></li>
+        <li><a href="#choose-style" class="mobile-nav-link" data-target="properties">Properties</a></li>
+        <li><a href="#choose-style" class="mobile-nav-link" data-target="explore">Explore</a></li>
+        <li><a href="#choose-style" class="mobile-nav-link" data-target="locations">Our Locations</a></li>
+        <li><a href="/about" class="mobile-nav-link" data-target="about">About Us</a></li>
+        <li><a href="#expert-team" class="mobile-nav-link" data-target="team">Our Team</a></li>
+        <li><a href="#property-inquiry" class="mobile-nav-link" data-target="contact">Contact</a></li>
+      </ul>
+      <div class="mobile-nav-cta">
+        <a href="#property-inquiry" class="mobile-cta-btn" id="mobile-cta-btn">
+          <span>Enquire Now</span>
+          <span class="cta-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div id="scroll-container">
+    <canvas id="sequence-canvas"></canvas>
+    <!-- Consistent Shared Vignette Shadow Layer for All Frames -->
+    <div id="vignette-overlay" aria-hidden="true"></div>
+    <div id="wordmark-container" aria-hidden="true">
+      <img id="luxeliving-wordmark" src="luxeliving_overlay_1280.png?v=2" alt="LuxeLiving" />
+    </div>
+
+    <!-- Completed House Text Overlay (No Blue Background Panel) -->
+    <div class="hero-overlay" id="hero-overlay" aria-hidden="true">
+      <div class="hero-content">
+        <div class="hero-eyebrow-group">
+          <span class="hero-eyebrow">LUXURY REAL ESTATE</span>
+          <span class="hero-gold-line" aria-hidden="true"></span>
+        </div>
+        <h1 class="hero-heading">
+          <span class="heading-line">YOUR NEXT</span>
+          <span class="heading-line accent-chapter">CHAPTER</span>
+          <span class="heading-line">STARTS HERE</span>
+        </h1>
+        <p class="hero-description">
+          Discover exceptional homes, thoughtfully selected for you.
+        </p>
+        <div class="hero-cta-wrapper">
+          <a href="#" class="hero-cta" id="hero-cta-btn">
+            <span>VIEW PROPERTY</span>
+            <span class="cta-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interior Grand Entrance Text Overlay (No Blue Background, No Panel) -->
+    <div class="entrance-overlay" id="entrance-overlay" aria-hidden="true">
+      <div class="entrance-content">
+        <h2 class="entrance-heading">
+          <span class="entrance-line">A GRAND</span>
+          <span class="entrance-line">ENTRANCE</span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Dining Room Text Overlay (Right-aligned, No Solid Panel, No Blue Background) -->
+    <div class="dining-overlay" id="dining-overlay" aria-hidden="true">
+      <div class="dining-content">
+        <h2 class="dining-heading">
+          <span class="dining-line">A PLACE</span>
+          <span class="dining-line">TO GATHER</span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Bedroom Sanctuary Text Overlay (Centered above bed, No Background Panel) -->
+    <div class="bedroom-overlay" id="bedroom-overlay" aria-hidden="true">
+      <div class="bedroom-content">
+        <span class="bedroom-eyebrow">YOUR PRIVATE</span>
+        <span class="bedroom-gold-line" aria-hidden="true"></span>
+        <h2 class="bedroom-heading">SANCTUARY</h2>
+      </div>
+    </div>
+
+    <!-- Swimming Pool Oasis Text Overlay (Centered, No Background Panel) -->
+    <div class="pool-overlay" id="pool-overlay" aria-hidden="true">
+      <div class="pool-content">
+        <span class="pool-eyebrow">YOUR PRIVATE</span>
+        <h2 class="pool-heading">OASIS</h2>
+        <span class="pool-gold-line" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <!-- Entertainment Zone Text Overlay (Upper-Left, Persistent to End) -->
+    <div class="entertainment-overlay" id="entertainment-overlay" aria-hidden="true">
+      <div class="entertainment-content">
+        <h2 class="entertainment-heading">
+          <span class="entertainment-line">PLAY BEYOND</span>
+          <span class="entertainment-line">THE ORDINARY</span>
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real Estate Information Section: Experience Excellence in Real Estate -->
+  <section id="experience-excellence" class="excellence-section" aria-label="Experience Excellence in Real Estate">
+    <div class="excellence-container">
+      
+      <!-- Section Header -->
+      <header class="excellence-header excellence-reveal delay-1">
+        <h2 class="excellence-title">
+          Experience Excellence<br />In Real Estate
+        </h2>
+      </header>
+
+      <!-- 3-Column Content Grid -->
+      <div class="excellence-grid">
+        
+        <!-- Left Column: Intro & Partners -->
+        <div class="excellence-col excellence-col-left">
+          <div class="left-top-block">
+            <h3 class="trusted-heading excellence-reveal delay-2">
+              Your Trusted Partner in Finding the Perfect Home
+            </h3>
+            <p class="trusted-description excellence-reveal delay-3">
+              At Luxira Real Estate, we believe that buying or selling a home should be an exciting and stress-free experience.
+            </p>
+            <div class="btn-wrap excellence-reveal delay-4">
+              <a href="#about-us" class="btn-about" id="btn-about-us">
+                <span>About Us</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="partners-block excellence-reveal delay-5">
+            <span class="partners-label">Our Partner:</span>
+            <div class="partners-list">
+              <div class="partner-item" title="Raynash">
+                <svg class="partner-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M9 16V8H12.5C13.88 8 15 9.12 15 10.5C15 11.88 13.88 13 12.5 13H9M12 13L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="partner-name">Raynash</span>
+              </div>
+              <div class="partner-item" title="Botanift">
+                <svg class="partner-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M12 16.5V11M12 11C12 9 14.5 7.5 16 8C16 10 14 12 12 11ZM12 13C12 11.5 9.5 10.5 8 11C8 12.5 10 14 12 13Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="partner-name">Botanift</span>
+              </div>
+              <div class="partner-item" title="Quotient">
+                <svg class="partner-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M15 9L9 15M9.5 9.5H9.51M14.5 14.5H14.51" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="partner-name">Quotient</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Column: Luxury Property Image Card -->
+        <div class="excellence-col excellence-col-center">
+          <div class="property-card excellence-reveal delay-3">
+            <div class="property-image-wrapper">
+              <img
+                src="images/luxury_cliff_villa.jpg"
+                alt="Modern luxury cliffside villa at sunset with infinity pool"
+                class="property-image"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Features & Reviews -->
+        <div class="excellence-col excellence-col-right">
+          <div class="features-list">
+            <div class="feature-item excellence-reveal delay-3">
+              <h4 class="feature-title">Expert Guidance</h4>
+              <p class="feature-description">
+                Our experienced agents provide professional advice and personalized support.
+              </p>
+            </div>
+            <div class="feature-divider excellence-reveal delay-3" aria-hidden="true"></div>
+
+            <div class="feature-item excellence-reveal delay-4">
+              <h4 class="feature-title">Wide Property Selection</h4>
+              <p class="feature-description">
+                From luxury homes to budget-friendly apartments, we have something for everyone.
+              </p>
+            </div>
+            <div class="feature-divider excellence-reveal delay-4" aria-hidden="true"></div>
+          </div>
+
+          <div class="reviews-block excellence-reveal delay-5">
+            <span class="reviews-label">Reviews:</span>
+            <div class="reviews-content">
+              <div class="avatar-stack">
+                <img src="images/avatar_1.jpg" alt="Client Reviewer" class="avatar-img" />
+                <img src="images/avatar_2.jpg" alt="Client Reviewer" class="avatar-img" />
+                <img src="images/avatar_3.jpg" alt="Client Reviewer" class="avatar-img" />
+                <div class="avatar-badge">10k+</div>
+              </div>
+              <div class="rating-info">
+                <div class="rating-number-row">
+                  <span class="rating-score">4.9</span>
+                  <div class="rating-stars" aria-label="5 out of 5 stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                </div>
+                <span class="rating-label">Customer Ratings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Our Expert Team Section -->
+  <section id="expert-team" class="team-section" aria-label="Meet Our Expert Team">
+    <div class="team-container">
+      
+      <!-- 2-Wing Layout: Profile Cards on Left, Text & CTA on Right -->
+      <div class="team-layout">
+        
+        <!-- Left Wing: 3 Profile Cards -->
+        <div class="team-cards-row">
+          
+          <!-- Card 1: Daniel Carter -->
+          <article class="team-card team-reveal delay-2">
+            <div class="team-card-image-wrap">
+              <img
+                src="images/team_daniel.jpg"
+                alt="Daniel Carter - Founder & Managing Director"
+                class="team-card-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card-info">
+              <h3 class="team-card-name">Daniel Carter</h3>
+              <p class="team-card-role">Founder &amp; Managing Director</p>
+              <p class="team-card-quote">“Leading LuxeLiving with a passion for exceptional properties and personalized service.”</p>
+            </div>
+          </article>
+
+          <!-- Card 2: Sophia Bennett -->
+          <article class="team-card team-reveal delay-3">
+            <div class="team-card-image-wrap">
+              <img
+                src="images/team_sophia.jpg"
+                alt="Sophia Bennett - Senior Property Advisor"
+                class="team-card-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card-info">
+              <h3 class="team-card-name">Sophia Bennett</h3>
+              <p class="team-card-role">Senior Property Advisor</p>
+              <p class="team-card-quote">“Helping clients discover premium homes that match their lifestyle and aspirations.”</p>
+            </div>
+          </article>
+
+          <!-- Card 3: Ethan Brooks -->
+          <article class="team-card team-reveal delay-4">
+            <div class="team-card-image-wrap">
+              <img
+                src="images/team_ethan.jpg"
+                alt="Ethan Brooks - Real Estate Investment Specialist"
+                class="team-card-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card-info">
+              <h3 class="team-card-name">Ethan Brooks</h3>
+              <p class="team-card-role">Real Estate Investment Specialist</p>
+              <p class="team-card-quote">“Guiding investors toward outstanding property opportunities and long-term value.”</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Right Wing: Heading, Description & CTA Button -->
+        <div class="team-content-col">
+          <header class="team-header">
+            <h2 class="team-heading team-reveal delay-1">
+              Meet Our Expert Team
+            </h2>
+            <p class="team-description team-reveal delay-2">
+              Our experienced professionals are committed to helping you find the perfect home or investment property with confidence.
+            </p>
+            <div class="team-cta-wrap team-reveal delay-3">
+              <a href="#all-experts" class="btn-all-experts" id="btn-all-experts">
+                <span>VIEW ALL EXPERTS</span>
+                <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </header>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Choose the One That Fits You Section -->
+  <section id="choose-style" class="styles-section" aria-label="Choose the One That Fits You">
+    <div class="styles-container">
+      
+      <!-- Section Header with Heading, Subtitle & Navigation Arrows -->
+      <header class="styles-header styles-reveal delay-1">
+        <div class="styles-header-left">
+          <h2 class="styles-heading">
+            Choose the One<br />That Fits You
+          </h2>
+        </div>
+        <div class="styles-header-right">
+          <p class="styles-subtext">
+            All our homes share the same advantage: location by the sea. But each one is different. <span class="highlight-gold">The choice is yours.</span>
+          </p>
+          <div class="styles-nav-arrows" aria-label="Carousel navigation">
+            <button class="styles-arrow-btn styles-prev" id="styles-prev-btn" aria-label="Previous properties">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+            <button class="styles-arrow-btn styles-next" id="styles-next-btn" aria-label="Next properties">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Horizontal Staggered Carousel Track -->
+      <div class="styles-carousel-wrapper styles-reveal delay-2">
+        <div class="styles-track" id="styles-track">
+          
+          <!-- Card 1: Modern Style (Staggered Low) -->
+          <article class="style-card stagger-low">
+            <div class="style-card-image-wrap">
+              <img
+                src="images/prop_modern_style.jpg"
+                alt="Modern Style luxury seaside architecture"
+                class="style-card-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="style-card-info">
+              <h3 class="style-card-title">Modern Style</h3>
+              <p class="style-card-desc">Open layouts, large windows, and the sea breeze at your doorstep.</p>
+            </div>
+          </article>
+
+          <!-- Card 2: Family Home (Staggered High) -->
+          <article class="style-card stagger-high">
+            <div class="style-card-image-wrap">
+              <img
+                src="images/prop_family_home.jpg"
+                alt="Family Home luxury residence by the ocean"
+                class="style-card-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="style-card-info">
+              <h3 class="style-card-title">Family Home</h3>
+              <p class="style-card-desc">Spacious rooms, private garden, and the ocean just a short walk away.</p>
+            </div>
+          </article>
+
+          <!-- Card 3: Cozy Retreat (Staggered Mid) -->
+          <article class="style-card stagger-mid">
+            <div class="style-card-image-wrap">
+              <img
+                src="images/prop_cozy_retreat.jpg"
+                alt="Cozy Retreat coastal cliffside sanctuary"
+                class="style-card-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="style-card-info">
+              <h3 class="style-card-title">Cozy Retreat</h3>
+              <p class="style-card-desc">Charming and full of warmth. Perfect for peaceful coastal living.</p>
+            </div>
+          </article>
+
+          <!-- Card 4: Luxury Villa (Staggered High) -->
+          <article class="style-card stagger-high">
+            <div class="style-card-image-wrap">
+              <img
+                src="images/prop_luxury_villa.jpg"
+                alt="Luxury Villa with illuminated infinity pool"
+                class="style-card-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="style-card-info">
+              <h3 class="style-card-title">Luxury Villa</h3>
+              <p class="style-card-desc">Unmatched architectural elegance with infinity pool and panoramic ocean vistas.</p>
+            </div>
+          </article>
+
+          <!-- Card 5: Waterfront Living (Staggered Low) -->
+          <article class="style-card stagger-low">
+            <div class="style-card-image-wrap">
+              <img
+                src="images/prop_waterfront_living.jpg"
+                alt="Waterfront Living contemporary glass residence"
+                class="style-card-img"
+                loading="lazy"
+              />
+            </div>
+            <div class="style-card-info">
+              <h3 class="style-card-title">Waterfront Living</h3>
+              <p class="style-card-desc">Direct beach access, private jetty, and spectacular sunrise views every morning.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Property Inquiry Section: Let's Discuss Your Next Move -->
+  <section id="property-inquiry" class="inquiry-section" aria-label="Property Inquiry Form">
+    <div class="inquiry-container">
+      
+      <div class="inquiry-grid">
+        
+        <!-- Left Column: Heading, Description & 3D Architectural Model (~40%) -->
+        <div class="inquiry-left-col inquiry-reveal delay-1">
+          <header class="inquiry-header">
+            <h2 class="inquiry-heading">LET'S DISCUSS<br />YOUR NEXT MOVE</h2>
+            <p class="inquiry-description">
+              Tell us about your property goals. Our team will help you find the right solution.
+            </p>
+          </header>
+
+          <div class="inquiry-illustration-wrap">
+            <div class="inquiry-model-card">
+              <img
+                src="images/inquiry_architectural_model.jpg"
+                alt="3D luxury architectural villa model"
+                class="inquiry-model-img"
+                loading="lazy"
+              />
+              <div class="model-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>ARCHITECTURAL CONCIERGE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Form (~60%) -->
+        <div class="inquiry-right-col inquiry-reveal delay-2">
+          
+          <form id="inquiry-form" class="inquiry-form" novalidate>
+            
+            <!-- Project Type Selectors (Pills) -->
+            <div class="project-types-group">
+              <span class="types-label">Select Project Type <span class="req">*</span></span>
+              
+              <!-- First Row (3 options) -->
+              <div class="pills-row" role="radiogroup" aria-label="Project Type Selection">
+                <label class="type-pill" for="pill-project">
+                  <input type="radio" name="project_type" id="pill-project" value="Project" class="pill-radio" />
+                  <span class="pill-text">Project</span>
+                </label>
+                <label class="type-pill" for="pill-construction">
+                  <input type="radio" name="project_type" id="pill-construction" value="Construction" class="pill-radio" />
+                  <span class="pill-text">Construction</span>
+                </label>
+                <label class="type-pill" for="pill-proj-const">
+                  <input type="radio" name="project_type" id="pill-proj-const" value="Project + Construction" class="pill-radio" />
+                  <span class="pill-text">Project + Construction</span>
+                </label>
+              </div>
+
+              <!-- Second Row (2 options) -->
+              <div class="pills-row" role="radiogroup" aria-label="Project Model Selection">
+                <label class="type-pill" for="pill-indiv">
+                  <input type="radio" name="project_type" id="pill-indiv" value="Individual Project" class="pill-radio" />
+                  <span class="pill-text">Individual Project</span>
+                </label>
+                <label class="type-pill" for="pill-ready">
+                  <input type="radio" name="project_type" id="pill-ready" value="Ready Project" class="pill-radio" />
+                  <span class="pill-text">Ready Project</span>
+                </label>
+              </div>
+
+              <div class="field-error-msg" id="error-project-type" role="alert" aria-live="polite"></div>
+            </div>
+
+            <!-- Form Fields 2-Column Grid -->
+            <div class="fields-grid">
+              
+              <!-- Left Field 1: Property Type -->
+              <div class="field-group">
+                <label for="field-property-type" class="field-label">Property Type <span class="req">*</span></label>
+                <input
+                  type="text"
+                  id="field-property-type"
+                  name="property_type"
+                  class="minimal-input"
+                  placeholder="e.g. Modern Villa, Penthouse"
+                  autocomplete="off"
+                  required
+                />
+                <div class="field-error-msg" id="error-property-type" role="alert" aria-live="polite"></div>
+              </div>
+
+              <!-- Right Field 1: Property Area -->
+              <div class="field-group">
+                <label for="field-property-area" class="field-label">Property Area</label>
+                <input
+                  type="text"
+                  id="field-property-area"
+                  name="property_area"
+                  class="minimal-input"
+                  placeholder="e.g. 500 m² / 5,400 sq ft"
+                  autocomplete="off"
+                />
+                <div class="field-error-msg" id="error-property-area" role="alert" aria-live="polite"></div>
+              </div>
+
+              <!-- Left Field 2: Construction Date -->
+              <div class="field-group">
+                <label for="field-construction-date" class="field-label">Construction Date</label>
+                <input
+                  type="text"
+                  id="field-construction-date"
+                  name="construction_date"
+                  class="minimal-input"
+                  placeholder="e.g. Q4 2026, Immediate"
+                  autocomplete="off"
+                />
+                <div class="field-error-msg" id="error-construction-date" role="alert" aria-live="polite"></div>
+              </div>
+
+              <!-- Right Field 2: Location -->
+              <div class="field-group">
+                <label for="field-location" class="field-label">Location <span class="req">*</span></label>
+                <input
+                  type="text"
+                  id="field-location"
+                  name="location"
+                  class="minimal-input"
+                  placeholder="e.g. Coastal Cliff, Palm Jumeirah"
+                  autocomplete="off"
+                  required
+                />
+                <div class="field-error-msg" id="error-location" role="alert" aria-live="polite"></div>
+              </div>
+
+              <!-- Left Field 3: Phone Number -->
+              <div class="field-group">
+                <label for="field-phone" class="field-label">Phone Number <span class="req">*</span></label>
+                <input
+                  type="tel"
+                  id="field-phone"
+                  name="phone_number"
+                  class="minimal-input"
+                  placeholder="+1 (555) 000-0000"
+                  autocomplete="tel"
+                  required
+                />
+                <div class="field-error-msg" id="error-phone" role="alert" aria-live="polite"></div>
+              </div>
+
+              <!-- Right Field 3: Full Name -->
+              <div class="field-group">
+                <label for="field-name" class="field-label">Full Name <span class="req">*</span></label>
+                <input
+                  type="text"
+                  id="field-name"
+                  name="full_name"
+                  class="minimal-input"
+                  placeholder="Alexander Wright"
+                  autocomplete="name"
+                  required
+                />
+                <div class="field-error-msg" id="error-name" role="alert" aria-live="polite"></div>
+              </div>
+
+            </div>
+
+            <!-- Wide Submit Button -->
+            <div class="form-submit-row">
+              <button type="submit" class="btn-submit-inquiry" id="btn-submit-inquiry">
+                <span class="btn-text">SUBMIT INQUIRY &rarr;</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <!-- Global Feedback Alert (Inline) -->
+            <div class="form-feedback-banner" id="form-feedback-banner" role="status" aria-live="polite" style="display: none;"></div>
+
+          </form>
+
+          <!-- Success Confirmation Card -->
+          <div class="inquiry-success-view" id="inquiry-success-view" style="display: none;" role="region" aria-live="polite">
+            <div class="success-icon-wrap" aria-hidden="true">&#10003;</div>
+            <h3 class="success-title">Inquiry Received Successfully</h3>
+            <p class="success-msg" id="success-custom-msg">
+              Thank you! Your property specifications have been recorded. Our Senior Managing Director will personally review your inquiry and reach out within 24 hours.
+            </p>
+            <div class="inquiry-summary-box" id="inquiry-summary-box"></div>
+            <button type="button" class="btn-reset-inquiry" id="btn-reset-inquiry">
+              SUBMIT ANOTHER INQUIRY
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      
+      <!-- 3-Column Footer Grid -->
+      <div class="footer-main-grid">
+        
+        <!-- Left Column: Logo, Description & Social Icons -->
+        <div class="footer-col footer-col-brand">
+          <a href="#" class="footer-logo-link" aria-label="LuxeLiving Home">
+            <img src="luxeliving_wordmark_cropped.png" alt="LuxeLiving" class="footer-logo-img" />
+          </a>
+          <p class="footer-brand-desc">
+            At LuxeLiving, we believe that buying or selling a home should be an exciting and stress-free experience, offering exceptional properties and personalized service.
+          </p>
+          <div class="footer-social-links" aria-label="Social media links">
+            <a href="https://facebook.com" class="social-icon-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com" class="social-icon-btn" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com" class="social-icon-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" class="social-icon-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Middle Column: Explore Navigation Links -->
+        <div class="footer-col footer-col-links">
+          <h3 class="footer-col-title">Explore</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#" class="footer-nav-link">Home</a></li>
+            <li><a href="#choose-style" class="footer-nav-link">Properties</a></li>
+            <li><a href="/about" class="footer-nav-link">About Us</a></li>
+            <li><a href="#expert-team" class="footer-nav-link">Our Team</a></li>
+            <li><a href="#property-inquiry" class="footer-nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Right Column: Get In Touch Contact Details -->
+        <div class="footer-col footer-col-contact">
+          <h3 class="footer-col-title">Get In Touch</h3>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+              <span class="contact-text">2443 Oak Ridge Omaha, OA 45065</span>
+            </li>
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <a href="tel:2078767452" class="contact-link">207-8767-452</a>
+            </li>
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </span>
+              <a href="tel:2838497053" class="contact-link">283-849-7053</a>
+            </li>
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <a href="mailto:inquiry@luxeliving.com" class="contact-link">inquiry@luxeliving.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar: Thin Divider & Centered Copyright -->
+      <div class="footer-bottom-bar">
+        <p class="copyright-text">
+          Copyright &copy; 2026 LuxeLiving | Powered by LuxeLiving
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
